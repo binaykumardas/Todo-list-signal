@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Todo List using Signal</h2>
+
+    <input type="text" placeholder="Enter todo item" [formControl]="todoControl">
+    <button (click)="addTodo()">Add</button>
+    <ul>
+            <li *ngFor="let todo of todoList()">
+            <input type="checkbox" (change)="toggoleTodo(todo.id)" [checked]="todo.completed">
+            <span>{{ todo.text }}</span>
+            <button (click)="deleteTodo(todo.id)">❌</button>
+        </li>
+    </ul>
+    <p>Completed: {{ completedCount() }}</p>
+</div>
